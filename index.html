@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Interpreters | Global Language Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #3498db;
+            --primary-green: #2ecc71;
+            --accent-teal: #1abc9c;
+            --dark-blue: #2980b9;
+            --light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-btn:hover {
+            background-color: #1abc9c !important;
+            color: white !important;
+        }
+
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img src="https://img.icons8.com/color/48/000000/fish.png" alt="Fish Interpreters Logo" class="h-10 w-10">
+                        <span class="ml-2 text-xl font-bold text-blue-600">Fish Interpreters</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-blue-600 font-medium">Home</a>
+                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition">Services</a>
+                    <a href="#industries" class="text-gray-600 hover:text-blue-600 transition">Industries</a>
+                    <a href="#languages" class="text-gray-600 hover:text-blue-600 transition">Languages</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition">About</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-blue-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#" class="block py-2 text-blue-600 font-medium">Home</a>
+                <a href="#services" class="block py-2 text-gray-600 hover:text-blue-600 transition">Services</a>
+                <a href="#industries" class="block py-2 text-gray-600 hover:text-blue-600 transition">Industries</a>
+                <a href="#languages" class="block py-2 text-gray-600 hover:text-blue-600 transition">Languages</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600 transition">About</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-500 to-green-500 text-white py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fadeIn">Global Communication. Anywhere. Any Language.</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Bridging language barriers with professional interpretation and translation services worldwide.
+            </p>
+            <div class="space-x-4">
+                <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300 inline-block">Request a Service</a>
+                <a href="#contact" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-blue-600 transition duration-300 inline-block">Contact Us</a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Multilingual Mission</h2>
+                <p class="text-lg text-gray-600">
+                    At Fish Interpreters, we empower global communication by connecting people across languages and cultures. 
+                    Our professional linguists provide accurate, culturally-sensitive language services for businesses, 
+                    healthcare providers, legal professionals, and international organizations worldwide.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-8 transition duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-microphone-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Simultaneous Interpretation</h3>
+                    <p class="text-gray-600 mb-4">Real-time translation for conferences, webinars, and live events with minimal delay.</p>
+                    <a href="#services" class="text-blue-500 font-medium hover:text-blue-700 transition">Learn More →</a>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-8 transition duration-300">
+                    <div class="text-green-500 mb-4">
+                        <i class="fas fa-file-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Document Translation</h3>
+                    <p class="text-gray-600 mb-4">Certified translations for legal, medical, technical, and business documents.</p>
+                    <a href="#services" class="text-green-500 font-medium hover:text-green-700 transition">Learn More →</a>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-8 transition duration-300">
+                    <div class="text-teal-500 mb-4">
+                        <i class="fas fa-globe-americas text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Remote Interpretation</h3>
+                    <p class="text-gray-600 mb-4">On-demand or scheduled interpretation via phone or video conference.</p>
+                    <a href="#services" class="text-teal-500 font-medium hover:text-teal-700 transition">Learn More →</a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="inline-block px-6 py-2 bg-blue-100 rounded-full">
+                    <p class="text-blue-600 font-medium">Available Worldwide – Online or On-Site</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Professional Services</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive language solutions tailored to your specific needs and industry requirements.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- On-Site Interpretation -->
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-user-friends text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">On-Site Interpretation</h3>
+                        <p class="text-gray-600 mb-4">Professional interpreters available at your location for meetings, conferences, court hearings, medical appointments, and more.</p>
+                        <a href="#contact" class="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full font-medium hover:bg-blue-200 transition">Request Service</a>
+                    </div>
+                </div>
+                
+                <!-- Remote Interpretation -->
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-green-500 flex items-center justify-center">
+                        <i class="fas fa-video text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Remote Interpretation</h3>
+                        <p class="text-gray-600 mb-4">Immediate or scheduled interpretation services via phone or video conference for businesses, healthcare providers, and legal professionals.</p>
+                        <a href="#contact" class="inline-block bg-green-100 text-green-600 px-4 py-2 rounded-full font-medium hover:bg-green-200 transition">Request Service</a>
+                    </div>
+                </div>
+                
+                <!-- Conference Interpretation -->
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-teal-500 flex items-center justify-center">
+                        <i class="fas fa-users text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Conference Interpretation</h3>
+                        <p class="text-gray-600 mb-4">Complete multilingual support for international conferences, including equipment rental, interpreter teams, and technical assistance.</p>
+                        <a href="#contact" class="inline-block bg-teal-100 text-teal-600 px-4 py-2 rounded-full font-medium hover:bg-teal-200 transition">Request Service</a>
+                    </div>
+                </div>
+                
+                <!-- Document Translation -->
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-blue-400 flex items-center justify-center">
+                        <i class="fas fa-file-signature text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Document Translation</h3>
+                        <p class="text-gray-600 mb-4">Certified translations for legal documents, medical records, technical manuals, marketing materials, and corporate communications.</p>
+                        <a href="#contact" class="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full font-medium hover:bg-blue-200 transition">Request Service</a>
+                    </div>
+                </div>
+                
+                <!-- Legal Interpretation -->
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-indigo-500 flex items-center justify-center">
+                        <i class="fas fa-balance-scale text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Legal Interpretation</h3>
+                        <p class="text-gray-600 mb-4">Specialized interpreters for court proceedings, depositions, attorney-client meetings, and legal documentation.</p>
+                        <a href="#contact" class="inline-block bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium hover:bg-indigo-200 transition">Request Service</a>
+                    </div>
+                </div>
+                
+                <!-- Medical Interpretation -->
+                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition duration-300">
+                    <div class="h-48 bg-purple-500 flex items-center justify-center">
+                        <i class="fas fa-clinic-medical text-white text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Medical Interpretation</h3>
+                        <p class="text-gray-600 mb-4">Trained medical interpreters for hospitals, clinics, telehealth appointments, and medical documentation.</p>
+                        <a href="#contact" class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full font-medium hover:bg-purple-200 transition">Request Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Served -->
+    <section id="industries" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Industries We Serve</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Professional language services tailored to specific industry requirements and terminology.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Healthcare -->
+                <div class="bg-blue-50 rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-blue-500 mb-3">
+                        <i class="fas fa-heartbeat text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Healthcare</h3>
+                    <p class="text-gray-600">Medical interpreters for hospitals, clinics, and healthcare providers, ensuring accurate communication between patients and providers.</p>
+                </div>
+                
+                <!-- Legal -->
+                <div class="bg-green-50 rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-green-500 mb-3">
+                        <i class="fas fa-gavel text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Legal</h3>
+                    <p class="text-gray-600">Court-certified interpreters for legal proceedings, depositions, and attorney-client meetings with strict confidentiality.</p>
+                </div>
+                
+                <!-- Business -->
+                <div class="bg-yellow-50 rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-yellow-500 mb-3">
+                        <i class="fas fa-briefcase text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Business</h3>
+                    <p class="text-gray-600">Corporate interpretation and translation for international meetings, contracts, negotiations, and global expansion.</p>
+                </div>
+                
+                <!-- Government -->
+                <div class="bg-purple-50 rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-purple-500 mb-3">
+                        <i class="fas fa-landmark text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Government</h3>
+                    <p class="text-gray-600">Bilingual support for government agencies, NGOs, and international organizations with security clearance options.</p>
+                </div>
+                
+                <!-- Education -->
+                <div class="bg-red-50 rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-red-500 mb-3">
+                        <i class="fas fa-graduation-cap text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Education</h3>
+                    <p class="text-gray-600">Interpretation for parent-teacher conferences, school meetings, and translation of educational materials.</p>
+                </div>
+                
+                <!-- Technology -->
+                <div class="bg-indigo-50 rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-indigo-500 mb-3">
+                        <i class="fas fa-laptop-code text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Technology</h3>
+                    <p class="text-gray-600">Technical translation and interpretation for IT companies, software localization, and global tech teams.</p>
+                </div>
+                
+                <!-- Events -->
+                <div class="bg-teal-50 rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-teal-500 mb-3">
+                        <i class="fas fa-calendar-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Events</h3>
+                    <p class="text-gray-600">Multilingual support for international conferences, conventions, and cultural events with interpretation equipment.</p>
+                </div>
+                
+                <!-- Custom Solutions -->
+                <div class="bg-gray-100 rounded-lg p-6 hover:shadow-lg transition">
+                    <div class="text-gray-600 mb-3">
+                        <i class="fas fa-lightbulb text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Custom Solutions</h3>
+                    <p class="text-gray-600">Specialized language services tailored to your unique requirements and industry-specific terminology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Support -->
+    <section id="languages" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Languages We Support</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    From Arabic to Zulu — We Speak Your Language.
+                </p>
+                <div class="mt-6 max-w-md mx-auto">
+                    <div class="relative">
+                        <input type="text" id="language-search" placeholder="Search languages..." class="w-full p-3 pl-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="languages-container">
+                <!-- Languages will be added here by JavaScript -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">Don't see your language listed? Many additional languages are available upon request.</p>
+                <a href="#contact" class="inline-block bg-amber-500 text-white px-6 py-3 rounded-full font-bold hover:bg-amber-600 transition">Need a rare language? Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Story</h2>
+                    <p class="text-gray-600 mb-4">
+                        Founded in 2010, Fish Interpreters has grown from a small team of linguists to a global network of professional interpreters and translators serving clients across six continents.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Our mission is to empower communication across cultures by delivering accurate, culturally-sensitive language services with the highest standards of professionalism and confidentiality.
+                    </p>
+                    
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Our Values</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-green-500 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p class="ml-3 text-gray-600">Accuracy – Precision in translation and interpretation</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-green-500 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p class="ml-3 text-gray-600">Cultural Competence – Understanding nuances beyond words</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-green-500 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p class="ml-3 text-gray-600">Confidentiality – Strict privacy for all client communications</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-green-500 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p class="ml-3 text-gray-600">Reliability – On-time delivery and dependable service</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Our Global Network</h3>
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <div class="bg-white px-4 py-2 rounded-full shadow-sm">
+                                <span class="text-gray-700">200+ Languages</span>
+                            </div>
+                            <div class="bg-white px-4 py-2 rounded-full shadow-sm">
+                                <span class="text-gray-700">1,500+ Interpreters</span>
+                            </div>
+                            <div class="bg-white px-4 py-2 rounded-full shadow-sm">
+                                <span class="text-gray-700">60+ Countries</span>
+                            </div>
+                            <div class="bg-white px-4 py-2 rounded-full shadow-sm">
+                                <span class="text-gray-700">24/7 Availability</span>
+                            </div>
+                        </div>
+                        <img src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/000000/external-team-work-vitaliy-gorbachev-blue-vitaly-gorbachev-1.png" alt="Team" class="mx-auto">
+                        <p class="text-center text-gray-600 mt-4">Our network includes native-speaking professionals with specialized industry expertise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-lg opacity-90 max-w-2xl mx-auto">
+                    Trusted by businesses, government agencies, and healthcare providers worldwide.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-300 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"Fish Interpreters provided outstanding conference interpreters for our international summit. Their professionalism and attention to detail made our event a success across multiple languages."</p>
+                    <div class="flex items-center">
+                        <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center text-blue-600 font-bold mr-4">
+                            JD
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Jennifer Davis</h4>
+                            <p class="text-sm opacity-80">Conference Organizer, Global Tech Forum</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-300 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"Our hospital relies on Fish Interpreters for medical interpretation services. Their interpreters are not only fluent but understand medical terminology, which is crucial for patient care."</p>
+                    <div class="flex items-center">
+                        <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center text-blue-600 font-bold mr-4">
+                            MS
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Dr. Michael Santos</h4>
+                            <p class="text-sm opacity-80">Chief Medical Officer, City General Hospital</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-300 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"We've used many translation services, but Fish Interpreters stands out for their legal expertise. Their certified translations meet all court requirements and their interpreters are court-certified."</p>
+                    <div class="flex items-center">
+                        <div class="bg-white w-12 h-12 rounded-full flex items-center justify-center text-blue-600 font-bold mr-4">
+                            AR
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Amy Rodriguez</h4>
+                            <p class="text-sm opacity-80">Senior Partner, Rodriguez & Associates</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+                    <p class="text-gray-600 mb-6">
+                        Ready to overcome language barriers? Contact us to discuss your interpretation or translation needs.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 text-blue-500">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold text-gray-800">Email</h3>
+                                <p class="text-gray-600">contact@fishinterpreters.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 text-blue-500">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold text-gray-800">Phone</h3>
+                                <p class="text-gray-600">+1 (800) 123-4567</p>
+                                <p class="text-sm text-gray-500">Available 24/7 for emergencies</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 text-blue-500">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-semibold text-gray-800">Headquarters</h3>
+                                <p class="text-gray-600">123 International Way, Suite 500<br>New York, NY 10001, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3">Business Hours</h3>
+                        <ul class="text-gray-600 space-y-1">
+                            <li class="flex justify-between">
+                                <span>Monday - Friday</span>
+                                <span>8:00 AM - 8:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Saturday</span>
+                                <span>9:00 AM - 5:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Sunday</span>
+                                <span>Emergency only</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form id="contact-form" class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name *</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="organization" class="block text-gray-700 font-medium mb-2">Organization</label>
+                            <input type="text" id="organization" name="organization" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="service" class="block text-gray-700 font-medium mb-2">Service Requested *</label>
+                            <select id="service" name="service" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="On-Site Interpretation">On-Site Interpretation</option>
+                                <option value="Remote Interpretation">Remote Interpretation</option>
+                                <option value="Simultaneous Interpretation">Simultaneous Interpretation</option>
+                                <option value="Consecutive Interpretation">Consecutive Interpretation</option>
+                                <option value="Document Translation">Document Translation</option>
+                                <option value="Event Support">Multilingual Event Support</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="language" class="block text-gray-700 font-medium mb-2">Language(s)</label>
+                            <input type="text" id="language" name="language" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Which language(s) do you need?">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" required class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                <span class="ml-2 text-gray-700">I agree to the privacy policy and terms of service</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 bg-gradient-to-r from-blue-500 to-green-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Break Language Barriers?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Get started with professional interpretation or translation services today.
+            </p>
+            <div class="space-x-4">
+                <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300 inline-block">Get a Quote</a>
+                <a href="tel:+18001234567" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-blue-600 transition duration-300 inline-block">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Fish Interpreters</h3>
+                    <p class="text-gray-400 mb-4">
+                        Global language services for businesses, healthcare, legal, and government sectors.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#industries" class="text-gray-400 hover:text-white transition">Industries</a></li>
+                        <li><a href="#languages" class="text-gray-400 hover:text-white transition">Languages</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">On-Site Interpretation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Remote Interpretation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Simultaneous Interpretation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Document Translation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Event Interpretation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Certified Translations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">123 International Way<br>New York, NY 10001, USA</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-gray-400 mr-3"></i>
+                            <span class="text-gray-400">+1 (800) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-3"></i>
+                            <span class="text-gray-400">contact@fishinterpreters.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2023 Fish Interpreters. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition text-sm">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="back-to-top bg-blue-600 text-white p-3 rounded-full shadow-lg transition opacity-0">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Languages data
+        const commonLanguages = [
+            "English", "Spanish", "French", "German", "Italian", 
+            "Portuguese", "Russian", "Chinese (Mandarin)", "Japanese", 
+            "Korean", "Arabic", "Hindi", "Bengali", "Punjabi", "Urdu"
+        ];
+
+        const europeanLanguages = [
+            "Albanian", "Armenian", "Azerbaijani", "Basque", "Belarusian",
+            "Bosnian", "Bulgarian", "Catalan", "Croatian", "Czech",
+            "Danish", "Dutch", "Estonian", "Finnish", "Georgian",
+            "Greek", "Hungarian", "Icelandic", "Irish", "Latvian",
+            "Lithuanian", "Macedonian", "Maltese", "Norwegian", "Polish",
+            "Romanian", "Serbian", "Slovak", "Slovenian", "Swedish",
+            "Turkish", "Ukrainian", "Welsh", "Yiddish"
+        ];
+
+        const asianLanguages = [
+            "Burmese", "Cambodian (Khmer)", "Cantonese", "Dari", "Farsi (Persian)",
+            "Filipino (Tagalog)", "Hebrew", "Indonesian", "Kazakh", "Kurdish",
+            "Kyrgyz", "Lao", "Malay", "Mongolian", "Nepali",
+            "Pashto", "Sinhala", "Taiwanese", "Tajik", "Tamil",
+            "Telugu", "Thai", "Tibetan", "Turkmen", "Uighur",
+            "Uzbek", "Vietnamese"
+        ];
+
+        const africanLanguages = [
+            "Amharic", "Afrikaans", "Akan", "Bambara", "Berber",
+            "Chichewa", "Dinka", "Ewe", "Fula", "Hausa",
+            "Igbo", "Kinyarwanda", "Luganda", "Oromo", "Shona",
+            "Somali", "Swahili", "Tigrinya", "Wolof", "Yoruba",
+            "Zulu"
+        ];
+
+        const indigenousLanguages = [
+            "Aymara", "Cherokee", "Guarani", "Inuktitut", "Maori",
+            "Navajo", "Quechua", "Sami", "Sanskrit", "Yiddish",
+            "Zulu", "Hawaiian", "Inupiaq", "Kalaallisut (Greenlandic)", "Ojibwe"
+        ];
+
+        const allLanguages = [...commonLanguages, ...europeanLanguages, ...asianLanguages, ...africanLanguages, ...indigenousLanguages].sort();
+
+        // Populate languages grid
+        const languagesContainer = document.getElementById('languages-container');
+        allLanguages.forEach(lang => {
+            const randomColorClass = `bg-${['blue', 'green', 'teal', 'indigo', 'purple', 'pink', 'yellow', 'amber'][Math.floor(Math.random() * 8)]}-100`;
+            const randomTextColorClass = `text-${['blue', 'green', 'teal', 'indigo', 'purple', 'pink', 'yellow', 'amber'][Math.floor(Math.random() * 8)]}-600`;
+            const langElement = document.createElement('div');
+            langElement.className = `language-btn p-2 rounded-full text-center font-medium ${randomColorClass} ${randomTextColorClass}`;
+            langElement.textContent = lang;
+            langElement.dataset.lang = lang.toLowerCase();
+            languagesContainer.appendChild(langElement);
+        });
+
+        // Language search functionality
+        document.getElementById('language-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const languageButtons = document.querySelectorAll('.language-btn');
+            
+            languageButtons.forEach(btn => {
+                if (btn.dataset.lang.includes(searchTerm)) {
+                    btn.style.display = 'block';
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.classList.add('opacity-0');
+                setTimeout(() => {
+                    backToTopButton.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Form submission (simulated)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+
+        // Simple animation for service cards on scroll
+        const animateOnScroll = function() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            const windowHeight = window.innerHeight;
+            
+            serviceCards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                if (cardPosition < windowHeight - 100) {
+                    card.classList.add('animate-fadeInUp');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
